@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRAVA ULTRA | COMMAND CENTER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@400,700&f[]=general-sans@700,500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="terminal-overlay"></div>
+    <div class="app-container">
+        <nav class="side-dock">
+            <div class="logo-box">S</div>
+            <div class="nav-icons">
+                <i data-lucide="layout-grid" class="active"></i>
+                <i data-lucide="activity"></i>
+                <i data-lucide="navigation-2"></i>
+                <i data-lucide="cpu"></i>
+                <i data-lucide="settings"></i>
+            </div>
+            <div class="side-console">
+                <div class="log-line">GPS_FIX_OK</div>
+                <div class="log-line">BT_LE_CON</div>
+                <div class="log-line">SENS_INIT</div>
+            </div>
+        </nav>
+
+        <main class="dashboard">
+            <header class="status-bar">
+                <div class="ticker">
+                    <span class="pulse-dot"></span>
+                    <span class="mono">SYSTEM_STATUS: <span class="text-primary">ACTIVE</span></span>
+                    <span class="mono">LAT: 42.3601 N</span>
+                    <span class="mono">LNG: 71.0589 W</span>
+                </div>
+                <div class="header-actions">
+                    <span class="mono">SYNC: 99%</span>
+                    <button class="btn-primary">GO LIVE</button>
+                </div>
+            </header>
+
+            <div class="grid-container">
+                <section class="col-8 glass-box route-visualizer">
+                    <div class="visualizer-header">
+                        <span class="tag">TOPOGRAPHIC ROUTE TRACE v2.0</span>
+                    </div>
+                    
+                    <div class="route-svg-container">
+                        <svg viewBox="0 0 800 400" class="main-svg">
+                            <defs>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                            </defs>
+                            <path d="M0 100 L800 100 M0 200 L800 200 M0 300 L800 300" stroke="rgba(255,255,255,0.03)" fill="none" />
+                            <path class="route-path" d="M100,300 C200,100 400,350 500,150 S700,50 750,250" />
+                            <circle r="5" fill="#fff" class="marker">
+                                <animateMotion dur="8s" repeatCount="indefinite" path="M100,300 C200,100 400,350 500,150 S700,50 750,250" />
+                            </circle>
+                        </svg>
+                    </div>
+
+                    <div class="stats-overlay">
+                        <div class="mini-card pace">
+                            <label>PACE</label>
+                            <div class="val">4'12"</div>
+                        </div>
+                        <div class="mini-card heart">
+                            <label>BPM</label>
+                            <div class="val" id="liveBPM">164</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col-4 glass-box biometric-panel">
+                    <div class="panel-header">BIOMETRIC ANALYSIS</div>
+                    <div class="chart-box">
+                        <canvas id="hrChart"></canvas>
+                    </div>
+                    <div class="split-list">
+                        <div class="split-item header"><span>KM</span><span>PACE</span><span>ELEV</span></div>
+                        <div class="split-item"><span>01</span><span>4:20</span><span>+12m</span></div>
+                        <div class="split-item active"><span>02</span><span>4:10</span><span>-2m</span></div>
+                        <div class="split-item"><span>03</span><span>4:15</span><span>+5m</span></div>
+                        <div class="split-item"><span>04</span><span>4:08</span><span>+0m</span></div>
+                    </div>
+                </section>
+
+                <section class="col-3 glass-box info-card">
+                    <label>VO2 MAX</label>
+                    <div class="huge-text">58.4</div>
+                    <div class="trend up">↑ 2.1%</div>
+                </section>
+
+                <section class="col-6 glass-box info-card">
+                    <label>TRAINING LOAD (WEEKLY)</label>
+                    <canvas id="loadChart"></canvas>
+                </section>
+
+                <section class="col-3 glass-box info-card">
+                    <label>ATMOSPHERICS</label>
+                    <div class="weather-grid">
+                        <div class="w-item">14°C<span>TEMP</span></div>
+                        <div class="w-item">44%<span>HUMID</span></div>
+                        <div class="w-item">12k<span>WIND</span></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
