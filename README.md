@@ -6,7 +6,7 @@ This is a recreated design of my favorite app, **Strava**. I use it every single
 
 ![Dashboard View](assets/dashboard.png)
 
-## Tech Stack
+## Tech Stack used:
 
 * **HTML5** - Semantic structure and content.
 * **CSS3** - Custom styling, Flexbox/Grid layout, and responsive design.
@@ -24,7 +24,7 @@ strava-desktop-ui/
 └── README.md
 ```
 
-## How to Run the code
+## How to Run this code
 
 Clone this repository:
 
@@ -38,7 +38,7 @@ Navigate to the project folder:
 cd strava-desktop-ui
 ```
 
-Launch the app: Open `index.html` in your favorite web browser.
+Launching the app: Open `index.html` in your favorite web browser.
 
 ## Notes
 
