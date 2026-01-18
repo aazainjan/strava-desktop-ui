@@ -8,9 +8,9 @@ This is a recreated design of my favorite app, **Strava**. I use it every single
 
 ## Tech Stack
 
-* **HTML5** - Semantic structure and content
-* **CSS3** - Custom styling, Flexbox/Grid layout, and responsive design
-* **JavaScript (ES6)** - Dynamic interactivity and UI behaviors
+* **HTML5** - Semantic structure and content.
+* **CSS3** - Custom styling, Flexbox/Grid layout, and responsive design.
+* **JavaScript (ES6)** - Dynamic interactivity and UI behaviors.
 
 ## Project Structure
 
@@ -24,7 +24,7 @@ strava-desktop-ui/
 └── README.md
 ```
 
-## How to Run
+## How to Run the code
 
 Clone this repository:
 
@@ -42,6 +42,6 @@ Launch the app: Open `index.html` in your favorite web browser.
 
 ## Notes
 
-This project is front-end only, built specifically for design and UI practice.
+This project is front-end only. I built it specifically for design and UI practice.
 
 
